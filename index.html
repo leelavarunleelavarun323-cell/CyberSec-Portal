@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="CyberSec Portal — Interactive Cybersecurity Awareness Platform. Explore tutorials, cheat-sheets, and a live CLI simulator." />
+  <title>CyberSec Portal — Hack The Knowledge</title>
+
+  <!-- Google Fonts: Fira Code (monospace) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════
+       BACKGROUND MATRIX RAIN CANVAS
+  ═══════════════════════════════════════════ -->
+  <canvas id="matrix-rain"></canvas>
+
+  <!-- ═══════════════════════════════════════════
+       SCANLINE OVERLAY (CRT monitor effect)
+  ═══════════════════════════════════════════ -->
+  <div class="scanline-overlay" aria-hidden="true"></div>
+
+  <!-- ═══════════════════════════════════════════
+       NAVBAR — Glassmorphism top navigation
+  ═══════════════════════════════════════════ -->
+  <nav id="navbar" class="navbar">
+    <div class="navbar__container">
+      <a href="#" class="navbar__logo" id="nav-logo">
+        <span class="navbar__logo-bracket">[</span>
+        <span class="navbar__logo-text">CyberSec</span>
+        <span class="navbar__logo-bracket">]</span>
+      </a>
+
+      <!-- Hamburger toggle for mobile -->
+      <button class="navbar__toggle" id="nav-toggle" aria-label="Toggle navigation menu">
+        <span class="navbar__toggle-bar"></span>
+        <span class="navbar__toggle-bar"></span>
+        <span class="navbar__toggle-bar"></span>
+      </button>
+
+      <ul class="navbar__links" id="nav-links">
+        <li><a href="#hero" class="navbar__link navbar__link--active" id="nav-home">Home</a></li>
+        <li><a href="#features" class="navbar__link" id="nav-tutorials">Tutorials</a></li>
+        <li><a href="#" class="navbar__link" id="nav-cheatsheets">Cheat-Sheets</a></li>
+        <li><a href="#terminal" class="navbar__link" id="nav-cli">CLI Simulator</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════
+       HERO SECTION — Glitch heading + Typewriter
+  ═══════════════════════════════════════════ -->
+  <section id="hero" class="hero">
+    <div class="hero__content">
+      <!-- Glitch text heading -->
+      <h1 class="hero__title glitch" data-text="HACK THE KNOWLEDGE">
+        HACK THE KNOWLEDGE
+      </h1>
+
+      <!-- Typewriter subtitle -->
+      <p class="hero__subtitle">
+        <span class="hero__prompt">&gt;&nbsp;</span>
+        <span class="hero__typewriter" id="typewriter-text"></span>
+        <span class="hero__cursor" aria-hidden="true">█</span>
+      </p>
+
+      <!-- CTA Buttons -->
+      <div class="hero__cta-group">
+        <a href="#features" class="btn btn--primary" id="cta-tutorials">
+          <span class="btn__icon">⟐</span> Explore Tutorials
+        </a>
+        <a href="#terminal" class="btn btn--secondary" id="cta-terminal">
+          <span class="btn__icon">⌘</span> Access Terminal
+        </a>
+      </div>
+
+      <!-- Scrolling stats bar -->
+      <div class="hero__stats">
+        <div class="hero__stat">
+          <span class="hero__stat-value" data-count="1247">0</span>
+          <span class="hero__stat-label">Vulnerabilities Cataloged</span>
+        </div>
+        <div class="hero__stat">
+          <span class="hero__stat-value" data-count="386">0</span>
+          <span class="hero__stat-label">Tutorials Available</span>
+        </div>
+        <div class="hero__stat">
+          <span class="hero__stat-value" data-count="89">0</span>
+          <span class="hero__stat-label">CLI Tools Covered</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       FEATURES / MODULES SECTION — 3-card grid
+  ═══════════════════════════════════════════ -->
+  <section id="features" class="features">
+    <div class="features__container">
+      <h2 class="section-heading">
+        <span class="section-heading__decorator">// </span>Modules
+      </h2>
+
+      <div class="features__grid">
+        <!-- Card 1 — Network Scanning -->
+        <article class="card" id="card-nmap">
+          <div class="card__glow" aria-hidden="true"></div>
+          <div class="card__header">
+            <div class="card__icon-wrap">
+              <svg class="card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10A15.3 15.3 0 0 1 12 2z"/>
+              </svg>
+            </div>
+            <span class="card__tag">Module 01</span>
+          </div>
+          <h3 class="card__title">Network Scanning</h3>
+          <p class="card__desc">
+            Master Nmap, port enumeration, service fingerprinting, and OS detection.
+            Map entire networks like a pro penetration tester.
+          </p>
+          <div class="card__meta">
+            <span class="card__tool">Nmap</span>
+            <span class="card__tool">Masscan</span>
+            <span class="card__tool">Ports</span>
+          </div>
+          <a href="#" class="card__link" id="card-nmap-link">
+            Scan Now <span class="card__arrow">→</span>
+          </a>
+        </article>
+
+        <!-- Card 2 — Vulnerability Exploitation -->
+        <article class="card" id="card-metasploit">
+          <div class="card__glow" aria-hidden="true"></div>
+          <div class="card__header">
+            <div class="card__icon-wrap">
+              <svg class="card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                <path d="M9 12l2 2 4-4"/>
+              </svg>
+            </div>
+            <span class="card__tag">Module 02</span>
+          </div>
+          <h3 class="card__title">Vulnerability Exploitation</h3>
+          <p class="card__desc">
+            Dive into Metasploit framework, craft payloads, exploit CVEs,
+            and understand post-exploitation techniques.
+          </p>
+          <div class="card__meta">
+            <span class="card__tool">Metasploit</span>
+            <span class="card__tool">CVE</span>
+            <span class="card__tool">Payloads</span>
+          </div>
+          <a href="#" class="card__link" id="card-metasploit-link">
+            Exploit Lab <span class="card__arrow">→</span>
+          </a>
+        </article>
+
+        <!-- Card 3 — Packet Analysis -->
+        <article class="card" id="card-wireshark">
+          <div class="card__glow" aria-hidden="true"></div>
+          <div class="card__header">
+            <div class="card__icon-wrap">
+              <svg class="card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+              </svg>
+            </div>
+            <span class="card__tag">Module 03</span>
+          </div>
+          <h3 class="card__title">Packet Analysis</h3>
+          <p class="card__desc">
+            Capture, filter, and dissect network packets with Wireshark.
+            Decode protocols, detect anomalies, and trace intrusions.
+          </p>
+          <div class="card__meta">
+            <span class="card__tool">Wireshark</span>
+            <span class="card__tool">tcpdump</span>
+            <span class="card__tool">Protocols</span>
+          </div>
+          <a href="#" class="card__link" id="card-wireshark-link">
+            Capture Packets <span class="card__arrow">→</span>
+          </a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       INTERACTIVE TERMINAL SECTION
+  ═══════════════════════════════════════════ -->
+  <section id="terminal" class="terminal-section">
+    <div class="terminal-section__container">
+      <h2 class="section-heading">
+        <span class="section-heading__decorator">// </span>CLI Simulator
+      </h2>
+
+      <div class="terminal" id="terminal-window">
+        <!-- Title bar (macOS / Kali style) -->
+        <div class="terminal__titlebar">
+          <div class="terminal__dots">
+            <span class="terminal__dot terminal__dot--red"></span>
+            <span class="terminal__dot terminal__dot--yellow"></span>
+            <span class="terminal__dot terminal__dot--green"></span>
+          </div>
+          <span class="terminal__title">root@kali:~#</span>
+          <div class="terminal__titlebar-spacer"></div>
+        </div>
+
+        <!-- Output area -->
+        <div class="terminal__body" id="terminal-body">
+          <div class="terminal__output" id="terminal-output">
+            <!-- Welcome banner injected by JS -->
+          </div>
+
+          <!-- Input line -->
+          <div class="terminal__input-line">
+            <span class="terminal__prompt">
+              <span class="terminal__user">root</span>@<span class="terminal__host">kali</span>:<span class="terminal__path">~</span>#&nbsp;
+            </span>
+            <input
+              type="text"
+              class="terminal__input"
+              id="terminal-input"
+              autocomplete="off"
+              spellcheck="false"
+              aria-label="Terminal input"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════ -->
+  <footer class="footer" id="footer">
+    <div class="footer__container">
+      <p class="footer__text">
+        <span class="footer__bracket">[</span>
+        &copy; 2026 CyberSec Portal &mdash; Hack Responsibly
+        <span class="footer__bracket">]</span>
+      </p>
+      <p class="footer__sub">All information is for educational purposes only.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
